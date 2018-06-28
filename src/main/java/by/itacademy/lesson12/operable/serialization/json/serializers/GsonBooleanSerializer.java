@@ -7,7 +7,7 @@ import com.google.gson.JsonSerializer;
 
 import java.lang.reflect.Type;
 
-public class PatientBooleanSerializer implements JsonSerializer<Boolean> {
+public class GsonBooleanSerializer implements JsonSerializer<Boolean> {
     @Override
     public JsonElement serialize(Boolean src, Type typeOfSrc, JsonSerializationContext context) {
         String birth = src ? ("ill") : ("healthy");

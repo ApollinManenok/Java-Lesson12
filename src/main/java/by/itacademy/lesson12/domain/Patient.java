@@ -10,6 +10,9 @@ public class Patient {
     private LocalDate birth;
     private boolean status;
 
+    public Patient() {
+    }
+
     public Patient(String name, String surname, LocalDate birth, boolean status) {
         this.name = name;
         this.surname = surname;

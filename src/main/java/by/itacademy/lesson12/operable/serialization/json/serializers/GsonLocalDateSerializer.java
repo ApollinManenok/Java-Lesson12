@@ -9,7 +9,7 @@ import com.google.gson.JsonSerializer;
 import java.lang.reflect.Type;
 import java.time.LocalDate;
 
-public class PatientLocalDateSerializer implements JsonSerializer<LocalDate> {
+public class GsonLocalDateSerializer implements JsonSerializer<LocalDate> {
     @Override
     public JsonElement serialize(LocalDate src, Type typeOfSrc, JsonSerializationContext context) {
         String birth = src.format(PatientDateFormat.INSTANCE.format());

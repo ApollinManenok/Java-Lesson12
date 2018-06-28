@@ -2,8 +2,8 @@ package by.itacademy.lesson12.operable.serialization.json;
 
 import by.itacademy.lesson12.domain.Registry;
 import by.itacademy.lesson12.operable.serialization.ReadPatients;
-import by.itacademy.lesson12.operable.serialization.json.deserializers.PatientBooleanDeserializer;
-import by.itacademy.lesson12.operable.serialization.json.deserializers.PatientLocalDateDeserializer;
+import by.itacademy.lesson12.operable.serialization.json.deserializers.GsonBooleanDeserializer;
+import by.itacademy.lesson12.operable.serialization.json.deserializers.GsonLocalDateDeserializer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
@@ -20,9 +20,8 @@ public class ReadLocalGson extends ReadPatients {
 
     @Override
     public void operation() {
-        GsonBuilder gsonBuilder = new GsonBuilder().registerTypeAdapter(LocalDate.class, new PatientLocalDateDeserializer());
-        gsonBuilder.registerTypeAdapter(Boolean.class, new PatientBooleanDeserializer());
-        Gson gson = gsonBuilder.create();
+        Gson gson = new GsonBuilder().registerTypeAdapter(LocalDate.class, new GsonLocalDateDeserializer())
+                .registerTypeAdapter(Boolean.class, new GsonBooleanDeserializer()).registerTypeAdapter(boolean.class, new GsonBooleanDeserializer()).create();
         try(JsonReader reader = new JsonReader(new FileReader(getFile()))) {
             Registry temp = gson.fromJson(reader, Registry.class);
             getRegistry().addAll(temp.getPatients());

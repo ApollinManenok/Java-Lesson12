@@ -3,8 +3,8 @@ package by.itacademy.lesson12.operable.serialization.json;
 import by.itacademy.lesson12.domain.Patient;
 import by.itacademy.lesson12.domain.Registry;
 import by.itacademy.lesson12.operable.serialization.WritePatients;
-import by.itacademy.lesson12.operable.serialization.json.serializers.PatientBooleanSerializer;
-import by.itacademy.lesson12.operable.serialization.json.serializers.PatientLocalDateSerializer;
+import by.itacademy.lesson12.operable.serialization.json.serializers.GsonBooleanSerializer;
+import by.itacademy.lesson12.operable.serialization.json.serializers.GsonLocalDateSerializer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -21,12 +21,9 @@ public class WriteLocalGson extends WritePatients {
     @Override
     public void operation() {
         Registry registry = getRegistry();
-        registry.addPatient(new Patient("Palina", "Manenok", "10-11-1993", "false"));
-        registry.addPatient(new Patient("Polina", "Manenok", "09-03-1993", "true"));
         try (Writer writer = new FileWriter(getSource())) {
-            GsonBuilder gsonBuilder = new GsonBuilder().registerTypeAdapter(LocalDate.class, new PatientLocalDateSerializer());
-            gsonBuilder.registerTypeAdapter(Boolean.class, new PatientBooleanSerializer());
-            Gson gson = gsonBuilder.create();
+            Gson gson = new GsonBuilder().registerTypeAdapter(LocalDate.class, new GsonLocalDateSerializer())
+                    .registerTypeAdapter(Boolean.class, new GsonBooleanSerializer()).setPrettyPrinting().create();
             gson.toJson(registry, writer);
         } catch (IOException e) {
             e.printStackTrace();

@@ -23,9 +23,9 @@ public class Menu {
     {
         operations.add(new PrintPatients(registry));
         operations.add(new ConsoleAddPatient(registry));
-        operations.add(new ReadLocalGson(registry, "Registry1.json")); //Read Local
-        operations.add(new WriteLocalGson(registry, "Registry1.json")); //Write Local
-        //operations.add(new UploadRemoteJackson(registry, "")); //Upload remote
+        operations.add(new ReadLocalGson(registry, "Registry.json")); //Read Local
+        operations.add(new WriteLocalGson(registry, "Registry.json")); //Write Local
+        operations.add(new UploadRemoteJackson(registry, "https://raw.githubusercontent.com/PManenok/Java-Lesson12-Text/master/Registry.json")); //Upload remote
     }
 
     public void list() {
