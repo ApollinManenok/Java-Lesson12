@@ -12,8 +12,8 @@ public class GsonBooleanDeserializer implements JsonDeserializer<Boolean> {
     public Boolean deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         String statusStr = json.getAsJsonPrimitive().getAsString();
         Boolean status = null;
-        if(statusStr.equalsIgnoreCase("HEALTHY") || statusStr.equalsIgnoreCase("ILL"))
-                status = statusStr.equalsIgnoreCase("HEALTHY");
+        if (statusStr.equalsIgnoreCase("HEALTHY") || statusStr.equalsIgnoreCase("ILL"))
+            status = statusStr.equalsIgnoreCase("HEALTHY");
         return status;
     }
 }

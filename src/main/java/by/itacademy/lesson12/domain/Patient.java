@@ -1,8 +1,6 @@
 package by.itacademy.lesson12.domain;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
-import java.util.InputMismatchException;
 
 public class Patient {
     private String name;

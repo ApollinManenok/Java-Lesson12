@@ -1,0 +1,10 @@
+{
+  "patients": [
+    {
+      "name": "Palina",
+      "surname": "Manenok",
+      "birth": "10-11-1993",
+      "status": "healthy"
+    }
+  ]
+}

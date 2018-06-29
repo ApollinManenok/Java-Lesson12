@@ -17,7 +17,7 @@ public class Registry implements Iterable<Patient> {
         patients.addAll(newPatients);
     }
 
-    public Set<Patient> getPatients(){
+    public Set<Patient> getPatients() {
         return patients;
     }
 

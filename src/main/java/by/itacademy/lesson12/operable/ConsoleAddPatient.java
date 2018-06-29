@@ -1,7 +1,7 @@
 package by.itacademy.lesson12.operable;
 
+import by.itacademy.lesson12.ExceptionHandler;
 import by.itacademy.lesson12.domain.PatientDateFormat;
-import by.itacademy.lesson12.inputable.Insert;
 import by.itacademy.lesson12.domain.Patient;
 import by.itacademy.lesson12.domain.Registry;
 import by.itacademy.lesson12.inputable.BoolInput;
@@ -12,11 +12,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.InputMismatchException;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ConsoleAddPatient extends BaseRegistryOperation {
-    private static final Logger LOGGER = Logger.getLogger(ConsoleAddPatient.class.getName());
-
     public ConsoleAddPatient(Registry registry) {
         super(registry);
     }
@@ -24,13 +21,13 @@ public class ConsoleAddPatient extends BaseRegistryOperation {
     @Override
     public void operation() {
         try {
-            String name = new Insert<>(new StringInput()).get("Enter patient name");
-            String surname = new Insert<>(new StringInput()).get("Enter patient surname");
-            LocalDate birth = new Insert<>(new DateInput(PatientDateFormat.INSTANCE.format())).get("Enter patient date of birth");
-            Boolean status = new Insert<>(new BoolInput()).get("Enter patient status");
+            String name = new StringInput().getValue("Enter patient name");
+            String surname = new StringInput().getValue("Enter patient surname");
+            LocalDate birth = new DateInput(PatientDateFormat.INSTANCE.format()).getValue("Enter patient date of birth");
+            Boolean status = new BoolInput().getValue("Enter patient status");
             getRegistry().addPatient(new Patient(name, surname, birth, status));
         } catch (DateTimeParseException | InputMismatchException e) {
-            LOGGER.log(Level.SEVERE, "Can't add patient with wrong data", e);
+            new ExceptionHandler().handle(Level.SEVERE, "Can't add patient with wrong data", e);
         }
     }
 

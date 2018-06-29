@@ -2,7 +2,6 @@ package by.itacademy.lesson12.inputable;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Scanner;
 
 public class DateInput implements Inputable<LocalDate> {
     private DateTimeFormatter format;
@@ -12,8 +11,8 @@ public class DateInput implements Inputable<LocalDate> {
     }
 
     @Override
-    public LocalDate input() {
-        String date = new Scanner(System.in).nextLine();
-        return LocalDate.parse(date, format);
+    public LocalDate getValue(String message) {
+        System.out.print(message + "\n>>> ");
+        return LocalDate.parse(scan.nextLine(), format);
     }
 }

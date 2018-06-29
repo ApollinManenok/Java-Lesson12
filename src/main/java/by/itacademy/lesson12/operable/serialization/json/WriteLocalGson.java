@@ -1,6 +1,6 @@
 package by.itacademy.lesson12.operable.serialization.json;
 
-import by.itacademy.lesson12.domain.Patient;
+import by.itacademy.lesson12.ExceptionHandler;
 import by.itacademy.lesson12.domain.Registry;
 import by.itacademy.lesson12.operable.serialization.WritePatients;
 import by.itacademy.lesson12.operable.serialization.json.serializers.GsonBooleanSerializer;
@@ -12,6 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.time.LocalDate;
+import java.util.logging.Level;
 
 public class WriteLocalGson extends WritePatients {
     public WriteLocalGson(Registry registry, String source) {
@@ -26,7 +27,7 @@ public class WriteLocalGson extends WritePatients {
                     .registerTypeAdapter(Boolean.class, new GsonBooleanSerializer()).setPrettyPrinting().create();
             gson.toJson(registry, writer);
         } catch (IOException e) {
-            e.printStackTrace();
+            new ExceptionHandler().handle(Level.SEVERE, "Can't get FileWriter from " + getSource(), e);
         }
     }
 

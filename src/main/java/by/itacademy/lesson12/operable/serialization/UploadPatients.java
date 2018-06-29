@@ -1,10 +1,12 @@
 package by.itacademy.lesson12.operable.serialization;
 
+import by.itacademy.lesson12.ExceptionHandler;
 import by.itacademy.lesson12.domain.Registry;
 import by.itacademy.lesson12.operable.BaseRegistryOperation;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.logging.Level;
 
 public abstract class UploadPatients extends BaseRegistryOperation {
     private String source;
@@ -16,7 +18,7 @@ public abstract class UploadPatients extends BaseRegistryOperation {
             this.source = source;
             this.url = new URL(this.source);
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+            new ExceptionHandler().handle(Level.SEVERE, "Can't get url from " + this.source, e);
         }
     }
 

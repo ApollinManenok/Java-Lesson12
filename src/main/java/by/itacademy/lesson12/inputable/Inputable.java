@@ -1,5 +1,9 @@
 package by.itacademy.lesson12.inputable;
 
+import java.util.Scanner;
+
 public interface Inputable<T> {
-    T input();
+    Scanner scan = new Scanner(System.in);
+
+    T getValue(String message);
 }

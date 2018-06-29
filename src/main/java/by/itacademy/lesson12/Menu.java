@@ -1,7 +1,6 @@
 package by.itacademy.lesson12;
 
 import by.itacademy.lesson12.domain.Registry;
-import by.itacademy.lesson12.inputable.Insert;
 import by.itacademy.lesson12.inputable.IntegerInput;
 import by.itacademy.lesson12.operable.ConsoleAddPatient;
 import by.itacademy.lesson12.operable.Operable;
@@ -13,10 +12,8 @@ import by.itacademy.lesson12.operable.serialization.json.WriteLocalGson;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Menu {
-    private static final Logger LOGGER = Logger.getLogger(Menu.class.getName());
     private ArrayList<Operable> operations = new ArrayList<>();
     private Registry registry = new Registry();
 
@@ -36,10 +33,10 @@ public class Menu {
                 System.out.println((i + 1) + ". " + operations.get(i).typo());
             }
             try {
-                int index = new Insert<>(new IntegerInput()).get("Enter option number");
+                int index = new IntegerInput().getValue("Enter option number");
                 term = operate(index);
             } catch (InputMismatchException | RangeException e) {
-                LOGGER.log(Level.WARNING, e.getMessage(), e);
+                new ExceptionHandler().handle(Level.WARNING, e.getMessage(), e);
             }
         }
     }
