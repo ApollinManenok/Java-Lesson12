@@ -12,7 +12,7 @@ public class JsonUploadTest {
     private UploadRemoteJackson upload = new UploadRemoteJackson(registry, "https://raw.githubusercontent.com/PManenok/Java-Lesson12-Text/master/Registry.json");
 
     @Test
-    public void checkAddingPatients() {
+    public void checkUploadingPatients() {
         upload.operation();
         assertTrue(!registry.getPatients().isEmpty());
         assertTrue(registry.getPatients().contains(new Patient("Elvis", "Presley", "8-1-1935", "true")));

@@ -27,7 +27,7 @@ public class JsonWriteReadTest {
     }
 
     @Test
-    public void checkAddingPatients() {
+    public void checkWritinReadingPatients() {
         registry.addPatient(patient1);
         registry.addPatient(patient2);
         write.operation();
