@@ -9,6 +9,12 @@ public abstract class ReadPatients extends BaseRegistryOperation {
     private File file;
     private String source;
 
+    public ReadPatients(Registry registry, File file) {
+        super(registry);
+        this.file = file;
+    }
+
+
     public ReadPatients(Registry registry, String source) {
         super(registry);
         this.source = source;

@@ -2,8 +2,6 @@ package by.itacademy.lesson12.operable.serialization.json;
 
 import by.itacademy.lesson12.domain.Patient;
 import by.itacademy.lesson12.domain.Registry;
-import by.itacademy.lesson12.operable.serialization.json.ReadLocalGson;
-import by.itacademy.lesson12.operable.serialization.json.WriteLocalGson;
 import org.junit.After;
 import org.junit.Test;
 
@@ -13,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class WriteLocalGsonTest {
-    private String testFile = "ReadLocalGsonTestRegistry.json";
+    private String testFile = "WriteLocalGsonTestRegistry.json";
     private Registry registry = new Registry();
     private WriteLocalGson write = new WriteLocalGson(registry, testFile);
     private ReadLocalGson read = new ReadLocalGson(registry, testFile);
