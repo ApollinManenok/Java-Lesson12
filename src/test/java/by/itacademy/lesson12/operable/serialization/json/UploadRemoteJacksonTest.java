@@ -1,13 +1,12 @@
-package by.itacademy.lesson12;
+package by.itacademy.lesson12.operable.serialization.json;
 
 import by.itacademy.lesson12.domain.Patient;
 import by.itacademy.lesson12.domain.Registry;
-import by.itacademy.lesson12.operable.serialization.json.UploadRemoteJackson;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
-public class JsonUploadTest {
+public class UploadRemoteJacksonTest {
     private Registry registry = new Registry();
     private UploadRemoteJackson upload = new UploadRemoteJackson(registry, "https://raw.githubusercontent.com/PManenok/Java-Lesson12-Text/master/Registry.json");
 

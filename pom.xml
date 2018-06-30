@@ -55,9 +55,14 @@
                     </executions>
                     <configuration>
                         <mainClass>by.itacademy.lesson12.App</mainClass>
-                        <arguments>
-                            <argument>argument1</argument>
-                        </arguments>
+<!--
+                        <systemProperties>
+                            <systemProperty>
+                                <key>-Djava.util.logging.config.file</key>
+                                <value>logging.properties</value>
+                            </systemProperty>
+                        </systemProperties>
+-->
                     </configuration>
                 </plugin>
                 <plugin>
@@ -76,6 +81,9 @@
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.20.1</version>
+                    <configuration>
+
+                    </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-jar-plugin</artifactId>
