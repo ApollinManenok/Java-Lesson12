@@ -10,37 +10,15 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class UploadRemoteJacksonTest {
-    private Registry registry;
-    private String source = "https://raw.githubusercontent.com/PManenok/Java-Lesson12-Text/master/Registry.json";
-    private UploadRemoteJackson upload;
-
-    @Before
-    public void runBeforeTestMethod() {
-        registry = new Registry();
-        upload = new UploadRemoteJackson(registry, source);
-    }
-
-    @After
-    public void runAfterTestMethod() {
-        registry = null;
-        upload = null;
-    }
+    private Registry registry = new Registry();
+    private String source = "UploadRemoteJacksonTestRegistry.json";
+    private UploadRemoteJackson upload = new UploadRemoteJackson(registry, UploadRemoteJacksonTest.class.getClassLoader().getResource(source));
+    private Patient patient = new Patient("Elvis", "Presley", "8-1-1935", "true");
 
     @Test
-    public void checkRegistryNotEmpty() {
-        upload.operation();
-        assertTrue(!registry.getPatients().isEmpty());
-    }
-
-    @Test
-    public void checkRegistryContainsFourPatients() {
+    public void checkUploadingPatients() {
         upload.operation();
         assertEquals(4, registry.getPatients().size());
-    }
-
-    @Test
-    public void checkRegistryContainsRightData() {
-        upload.operation();
-        assertTrue(registry.getPatients().contains(new Patient("Elvis", "Presley", "8-1-1935", "true")));
+        assertTrue(registry.getPatients().contains(patient));
     }
 }

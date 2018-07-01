@@ -8,6 +8,7 @@ import by.itacademy.lesson12.operable.serialization.json.serializers.GsonLocalDa
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
@@ -19,10 +20,14 @@ public class WriteLocalGson extends WritePatients {
         super(registry, source);
     }
 
+    public WriteLocalGson(Registry registry, File file) {
+        super(registry, file);
+    }
+
     @Override
     public void operation() {
         Registry registry = getRegistry();
-        try (Writer writer = new FileWriter(getSource())) {
+        try (Writer writer = new FileWriter(getFile())) {
             Gson gson = new GsonBuilder().registerTypeAdapter(LocalDate.class, new GsonLocalDateSerializer())
                     .registerTypeAdapter(Boolean.class, new GsonBooleanSerializer()).setPrettyPrinting().create();
             gson.toJson(registry, writer);

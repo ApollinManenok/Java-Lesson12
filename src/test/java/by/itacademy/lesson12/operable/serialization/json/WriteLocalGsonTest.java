@@ -11,21 +11,16 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class WriteLocalGsonTest {
-    private String testFile = "WriteLocalGsonTestRegistry.json";
     private Registry registry = new Registry();
-    private WriteLocalGson write = new WriteLocalGson(registry, testFile);
-    private ReadLocalGson read = new ReadLocalGson(registry, testFile);
+    private String testFile = "WriteLocalGsonTestRegistry.json";
+    private File file = new File(ReadLocalGsonTest.class.getClassLoader().getResource("WriteLocalGsonTestRegistry.json").getFile());
+    private WriteLocalGson write = new WriteLocalGson(registry, file);
+    private ReadLocalGson read = new ReadLocalGson(registry, file);
     private Patient patient1 = new Patient("Elvis", "Presley", "8-1-1935", "true");
     private Patient patient2 = new Patient("Louis", "Armstrong", "4-8-1901", "false");
 
-    @After
-    public void tearDown() {
-        File file = new File(testFile);
-        file.deleteOnExit();
-    }
-
     @Test
-    public void checkWritinReadingPatients() {
+    public void checkWritingPatients() {
         registry.addPatient(patient1);
         registry.addPatient(patient2);
         write.operation();

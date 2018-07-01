@@ -15,6 +15,12 @@ public abstract class WritePatients extends BaseRegistryOperation {
         this.file = new File(this.source);
     }
 
+    public WritePatients(Registry registry, File file) {
+        super(registry);
+        this.source = file.getName();
+        this.file = file;
+    }
+
     public File getFile() {
         return file;
     }

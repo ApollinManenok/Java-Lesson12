@@ -19,5 +19,4 @@ public class JcsonLocalDateDeserializer extends StdDeserializer<LocalDate> {
         String birth = jp.getValueAsString();
         return LocalDate.parse(birth, PatientDateFormat.INSTANCE.format());
     }
-
 }

@@ -1,6 +1,18 @@
 {
   "patients": [
     {
+      "name": "Elvis",
+      "surname": "Presley",
+      "birth": "8-1-1935",
+      "status": "healthy"
+    },
+    {
+      "name": "Tim",
+      "surname": "Berners-Lee",
+      "birth": "8-6-1955",
+      "status": "ill"
+    },
+    {
       "name": "Louis",
       "surname": "Armstrong",
       "birth": "4-8-1901",

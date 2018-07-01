@@ -11,12 +11,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
 import java.util.logging.Level;
 
 public class UploadRemoteJackson extends UploadPatients {
     public UploadRemoteJackson(Registry registry, String source) {
         super(registry, source);
+    }
+
+    public UploadRemoteJackson(Registry registry, URL url) {
+        super(registry, url);
     }
 
     @Override

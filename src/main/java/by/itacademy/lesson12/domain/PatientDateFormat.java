@@ -9,5 +9,4 @@ public class PatientDateFormat {
     public DateTimeFormatter format() {
         return formatter;
     }
-
 }

@@ -22,6 +22,11 @@ public abstract class UploadPatients extends BaseRegistryOperation {
         }
     }
 
+    public UploadPatients(Registry registry, URL url) {
+        super(registry);
+        this.url = url;
+    }
+
     public String getSource() {
         return source;
     }

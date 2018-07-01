@@ -1,9 +1,15 @@
 {
   "patients": [
     {
-      "name": "Palina",
-      "surname": "Manenok",
-      "birth": "10-11-1993",
+      "name": "Tim",
+      "surname": "Berners-Lee",
+      "birth": "8-6-1955",
+      "status": "ill"
+    },
+    {
+      "name": "Louis",
+      "surname": "Armstrong",
+      "birth": "4-8-1901",
       "status": "healthy"
     }
   ]

@@ -13,26 +13,14 @@ import static org.junit.Assert.assertTrue;
 
 public class ReadLocalGsonTest {
     private String testFile = "ReadLocalGsonTestRegistry.json";
-    private Registry registry;
-    private ReadLocalGson read;
-    private Patient patient = new Patient("Palina", "Manenok", "10-11-1993", "true");
-
-    @Before
-    public void runBeforeTestMethod() {
-        registry = new Registry();
-        read = new ReadLocalGson(registry, new File(ReadLocalGsonTest.class.getClassLoader().getResource(testFile).getFile()));
-    }
-
-    @After
-    public void runAfterTestMethod() {
-        registry = null;
-        read = null;
-    }
+    private Registry registry = new Registry();
+    private ReadLocalGson read = new ReadLocalGson(registry, new File(ReadLocalGsonTest.class.getClassLoader().getResource(testFile).getFile()));
+    private Patient patient = new Patient("Louis", "Armstrong", "4-8-1901", "false");
 
     @Test
-    public void checkRegistryContainsPatient() {
+    public void checkReadingPatients() {
         read.operation();
-        assertEquals(1, registry.getPatients().size());
+        assertEquals(2, registry.getPatients().size());
         assertTrue(registry.getPatients().contains(patient));
     }
 }

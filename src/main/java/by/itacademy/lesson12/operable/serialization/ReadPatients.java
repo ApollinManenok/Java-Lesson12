@@ -11,6 +11,7 @@ public abstract class ReadPatients extends BaseRegistryOperation {
 
     public ReadPatients(Registry registry, File file) {
         super(registry);
+        this.source = file.getName();
         this.file = file;
     }
 

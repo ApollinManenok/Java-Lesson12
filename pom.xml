@@ -43,29 +43,6 @@
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>exec-maven-plugin</artifactId>
-                    <version>1.2.1</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>java</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <mainClass>by.itacademy.lesson12.App</mainClass>
-<!--
-                        <systemProperties>
-                            <systemProperty>
-                                <key>-Djava.util.logging.config.file</key>
-                                <value>logging.properties</value>
-                            </systemProperty>
-                        </systemProperties>
--->
-                    </configuration>
-                </plugin>
-                <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.0.0</version>
                 </plugin>
@@ -81,15 +58,12 @@
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.20.1</version>
-                    <configuration>
-
-                    </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>3.0.2</version>
                     <configuration>
-                        <finalName>myJar</finalName>
+                        <finalName>lesson12</finalName>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -109,6 +83,20 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <goals>
+                    <goal>java</goal>
+                </goals>
+                <configuration>
+                    <mainClass>by.itacademy.lesson12.App</mainClass>
+                    <commandlineArgs>
+                        -Djava.util.logging.config.file=logging.properties
+                    </commandlineArgs>
                 </configuration>
             </plugin>
         </plugins>

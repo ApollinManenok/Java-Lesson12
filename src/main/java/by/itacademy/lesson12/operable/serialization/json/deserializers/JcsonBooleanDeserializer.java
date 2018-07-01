@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import java.io.IOException;
 
 public class JcsonBooleanDeserializer extends StdDeserializer<Boolean> {
-
     public JcsonBooleanDeserializer() {
         super(Boolean.class);
     }
