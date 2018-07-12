@@ -93,10 +93,15 @@
                     <goal>java</goal>
                 </goals>
                 <configuration>
-                    <mainClass>by.itacademy.lesson12.App</mainClass>
-                    <commandlineArgs>
-                        -Djava.util.logging.config.file=logging.properties
-                    </commandlineArgs>
+                    <executable>java</executable>
+                    <arguments>
+                        <argument>
+                            -Djava.util.logging.config.file=${project.build.outputDirectory}/logging.properties
+                        </argument>
+                        <argument>-classpath</argument>
+                        <classpath/>
+                        <argument>by.itacademy.lesson12.App</argument>
+                    </arguments>
                 </configuration>
             </plugin>
         </plugins>
