@@ -2,8 +2,6 @@ package by.itacademy.lesson12.operable.serialization.json;
 
 import by.itacademy.lesson12.domain.Patient;
 import by.itacademy.lesson12.domain.Registry;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

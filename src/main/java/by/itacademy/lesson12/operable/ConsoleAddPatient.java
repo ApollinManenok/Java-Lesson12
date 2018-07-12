@@ -1,8 +1,8 @@
 package by.itacademy.lesson12.operable;
 
 import by.itacademy.lesson12.ExceptionHandler;
-import by.itacademy.lesson12.domain.PatientDateFormat;
 import by.itacademy.lesson12.domain.Patient;
+import by.itacademy.lesson12.domain.PatientDateFormat;
 import by.itacademy.lesson12.domain.Registry;
 import by.itacademy.lesson12.inputable.BoolInput;
 import by.itacademy.lesson12.inputable.DateInput;

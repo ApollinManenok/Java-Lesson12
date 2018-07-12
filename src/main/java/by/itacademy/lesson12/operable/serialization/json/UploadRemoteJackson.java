@@ -5,8 +5,6 @@ import by.itacademy.lesson12.domain.Registry;
 import by.itacademy.lesson12.operable.serialization.UploadPatients;
 import by.itacademy.lesson12.operable.serialization.json.deserializers.JcsonBooleanDeserializer;
 import by.itacademy.lesson12.operable.serialization.json.deserializers.JcsonLocalDateDeserializer;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 

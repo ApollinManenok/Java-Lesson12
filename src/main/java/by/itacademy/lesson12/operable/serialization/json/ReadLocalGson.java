@@ -14,7 +14,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ReadLocalGson extends ReadPatients {
     public ReadLocalGson(Registry registry, String source) {
